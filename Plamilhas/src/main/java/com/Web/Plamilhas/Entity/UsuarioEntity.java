@@ -46,12 +46,12 @@ private OffsetDateTime ultimoLogin;
 private String perfil;
 
 //Relacionamentos
-@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+/*@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 private List<CartaoUsuario> cartoes = new ArrayList<>();
 
 @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 private List<Compra> compras = new ArrayList<>();
 
 @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-private List<SaldoPontos> saldos = new ArrayList<>();
+private List<SaldoPontos> saldos = new ArrayList<>();*/
 } 
