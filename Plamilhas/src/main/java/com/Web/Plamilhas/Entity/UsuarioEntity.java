@@ -33,12 +33,16 @@ private String email;
 private String senhaHash;
 
 private boolean ativo = true;
-
+@Column(name = "criado_em")
 private OffsetDateTime criadoEm;
+
+@Column(name = "atualizado_em")
 private OffsetDateTime atualizadoEm;
+
+@Column(name = "ultimo_login")
 private OffsetDateTime ultimoLogin;
 
-@Column(columnDefinition = "jasonb")
+@Column(columnDefinition = "jsonb")
 private String perfil;
 
 //Relacionamentos

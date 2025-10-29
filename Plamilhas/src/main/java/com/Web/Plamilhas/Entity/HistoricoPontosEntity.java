@@ -2,6 +2,7 @@ package com.Web.Plamilhas.Entity;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,26 +16,26 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "cartao_usuario")
+@Table(name = "historico_pontos")
 @Data @Builder @NoArgsConstructor @AllArgsConstructor
-public class CartaoUsuarioEntity {
+
+public class HistoricoPontosEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-    
-    @ManyToOne @JoinColumn(name =  "usuario_id")
+
+    @ManyToOne @JoinColumn(name = "usuario_id")
     private UsuarioEntity usuario;
 
-    @ManyToOne @JoinColumn(name = "bandeira_id")
-    private BandeiraEntity bandeira;
-
-    @ManyToOne @JoinColumn(name = "program_id")
+    @ManyToOne @JoinColumn(name = "programa_id")
     private ProgramaEntity programa;
 
-    private String apelido;
-    private String ultimos4;
-    private String binPrefixo;
-    private Boolean ativo;
+    private Integer variacao;
+    private Long saldoApos;
+    private String origem;
+    private UUID origemId;
     private OffsetDateTime criadoEm;
+    private String observacoes;
+
 
 }
