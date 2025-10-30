@@ -1,0 +1,32 @@
+package br.com.plamilhas.security;
+
+import br.com.plamilhas.entity.Usuario;
+import br.com.plamilhas.repository.UsuarioRepository;
+
+import org.springframework.security.core.userdetails.*;
+import org.springframework.stereotype.Service;
+
+import com.Web.Plamilhas.Entity.UsuarioEntity;
+import com.Web.Plamilhas.Repository.UsuarioRepository;
+
+@Service
+public class UsuarioDetailsService implements UserDetailsService {
+
+    private final UsuarioRepository repository;
+
+    public UsuarioDetailsService(UsuarioRepository repository) {
+        this.repository = repository;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        UsuarioEntity usuario = repository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado: " + email));
+        return User.builder()
+                .username(usuario.getEmail())
+                .password(usuario.getSenhaHash())
+                .roles("USER")
+                .disabled(!usuario.isAtivo())
+                .build();
+    }
+}

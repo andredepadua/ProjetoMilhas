@@ -1,0 +1,23 @@
+package br.com.plamilhas.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+import java.time.OffsetDateTime;
+import java.util.UUID;
+
+@Entity
+@Table(name = "token_push")
+@Data @Builder @NoArgsConstructor @AllArgsConstructor
+public class TokenPush {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
+
+    @ManyToOne @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+    private String token;
+    private String informacoesDispositivo;
+    private OffsetDateTime criadoEm;
+    private OffsetDateTime ultimoAcesso;
+}

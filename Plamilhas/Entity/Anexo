@@ -1,0 +1,27 @@
+package br.com.plamilhas.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+import java.time.OffsetDateTime;
+import java.util.UUID;
+
+@Entity
+@Table(name = "anexo")
+@Data @Builder @NoArgsConstructor @AllArgsConstructor
+public class Anexo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
+
+    @ManyToOne @JoinColumn(name = "compra_id")
+    private Compra compra;
+
+    @ManyToOne @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+    private String caminhoArquivo;
+    private String nomeArquivo;
+    private String tipoArquivo;
+    private Long tamanho;
+    private OffsetDateTime enviadoEm;
+}

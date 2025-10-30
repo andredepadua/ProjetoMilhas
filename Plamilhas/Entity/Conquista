@@ -1,0 +1,22 @@
+package br.com.plamilhas.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Table(name = "conquista")
+@Data @Builder @NoArgsConstructor @AllArgsConstructor
+public class Conquista {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    private String codigo;
+    private String titulo;
+    private String descricao;
+
+    @Column(columnDefinition = "jsonb")
+    private String criterio;
+
+    private Integer recompensaPontos;
+}

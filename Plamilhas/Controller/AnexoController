@@ -1,0 +1,12 @@
+@RestController
+@RequestMapping("/api/anexos")
+@RequiredArgsConstructor
+public class AnexoController {
+    private final AnexoRepository repo;
+
+    @GetMapping
+    public List<Anexo> listar() { return repo.findAll(); }
+
+    @PostMapping
+    public Anexo salvar(@RequestBody Anexo anexo) { return repo.save(anexo); }
+}

@@ -1,0 +1,7 @@
+@RestController
+@RequestMapping("/api/conquistas")
+@RequiredArgsConstructor
+public class ConquistaController {
+    private final ConquistaRepository repo;
+    @GetMapping public List<Conquista> listar() { return repo.findAll(); }
+}

@@ -1,0 +1,7 @@
+@RestController
+@RequestMapping("/api/resgates")
+@RequiredArgsConstructor
+public class ResgateController {
+    private final ResgateRepository repo;
+    @GetMapping public List<Resgate> listar() { return repo.findAll(); }
+}

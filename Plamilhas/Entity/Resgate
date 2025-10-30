@@ -1,0 +1,26 @@
+package br.com.plamilhas.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+import java.time.OffsetDateTime;
+import java.util.UUID;
+
+@Entity
+@Table(name = "resgate")
+@Data @Builder @NoArgsConstructor @AllArgsConstructor
+public class Resgate {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
+
+    @ManyToOne @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+    @ManyToOne @JoinColumn(name = "programa_id")
+    private Programa programa;
+
+    private Long pontosUsados;
+    private OffsetDateTime dataResgate;
+    private String descricao;
+    private String status;
+}
