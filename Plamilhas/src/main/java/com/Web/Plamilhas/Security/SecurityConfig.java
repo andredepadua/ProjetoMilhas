@@ -1,4 +1,4 @@
-package br.com.plamilhas.security;
+package com.Web.Plamilhas.Security;
 
 import org.springframework.context.annotation.*;
 import org.springframework.security.authentication.AuthenticationManager;

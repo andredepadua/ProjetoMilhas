@@ -1,8 +1,5 @@
-package br.com.plamilhas.controller;
+package com.Web.Plamilhas.Controller;
 
-import br.com.plamilhas.entity.Usuario;
-import br.com.plamilhas.repository.UsuarioRepository;
-import br.com.plamilhas.security.JwtTokenProvider;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -11,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 import com.Web.Plamilhas.Entity.UsuarioEntity;
+import com.Web.Plamilhas.Repository.UsuarioRepository;
+import com.Web.Plamilhas.Security.JwtTokenProvider;
 
 @RestController
 @RequestMapping("/api/auth")

@@ -1,7 +1,5 @@
-package br.com.plamilhas.security;
+package com.Web.Plamilhas.Security;
 
-import br.com.plamilhas.entity.Usuario;
-import br.com.plamilhas.repository.UsuarioRepository;
 
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;

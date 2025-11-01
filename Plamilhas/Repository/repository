@@ -1,5 +1,0 @@
-public interface AnexoRepository extends JpaRepository<Anexo, UUID> {}
-public interface NotificacaoRepository extends JpaRepository<Notificacao, UUID> {}
-public interface ResgateRepository extends JpaRepository<Resgate, UUID> {}
-public interface ConquistaRepository extends JpaRepository<Conquista, Integer> {}
-public interface TokenPushRepository extends JpaRepository<TokenPush, UUID> {}
