@@ -1,8 +1,0 @@
-package com.Web.Plamilhas.Controller;
-@RestController
-@RequestMapping("/api/notificacoes")
-@RequiredArgsConstructor
-public class NotificacaoController {
-    private final NotificacaoRepository repo;
-    @GetMapping public List<Notificacao> listar() { return repo.findAll(); }
-}
