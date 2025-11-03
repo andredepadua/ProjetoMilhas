@@ -20,7 +20,7 @@ public class JwtTokenProvider {
     private final Key key = Keys.hmacShaKeyFor(SECRET.getBytes());
     
     public String gerarToken (String email){
-        Date agora = new Date();
+        Date agora = new Date(1);
         Date validade = new Date(agora.getTime() + EXPIRATION);
         return Jwts.builder()
                 .setSubject(email)
