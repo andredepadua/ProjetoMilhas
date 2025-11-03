@@ -16,7 +16,7 @@ import jakarta.persistence.GenerationType;
 @Data @Builder @NoArgsConstructor @AllArgsConstructor
 public class ConquistaEntity {
     @Id
-    @GeneratedValue(strategy = GeneretionType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String codigo;

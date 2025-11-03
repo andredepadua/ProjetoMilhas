@@ -20,7 +20,7 @@ import jakarta.persistence.GenerationType;
 @Data @Builder @NoArgsConstructor @AllArgsConstructor
 public class ResgateEntity {
     @Id
-    @GeneratedValue(strategy = GeneretionType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @ManyToOne @JoinColumn(name = "usuario_id")
