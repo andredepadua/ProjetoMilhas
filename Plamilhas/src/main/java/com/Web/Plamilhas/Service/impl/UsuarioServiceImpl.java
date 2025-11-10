@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.Web.Plamilhas.Entity.UsuarioEntity;
+import com.Web.Plamilhas.Exception.ResourceNotFoundException;
 import com.Web.Plamilhas.Repository.UsuarioRepository;
 import com.Web.Plamilhas.Service.UsuarioService;
 
@@ -24,7 +25,7 @@ public class UsuarioServiceImpl implements UsuarioService{
     }
     @Override
     public UsuarioEntity buscarPorId(UUID id){
-        return repository.findById(id).orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
+        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Usuario não encontrado"));
     }
     @Override
     public Optional<UsuarioEntity> buscarPorEmail(String email){

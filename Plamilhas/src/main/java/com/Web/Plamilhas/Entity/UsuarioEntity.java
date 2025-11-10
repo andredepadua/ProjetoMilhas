@@ -3,10 +3,12 @@ package com.Web.Plamilhas.Entity;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -62,8 +64,11 @@ private List<SaldoPontosEntity> saldos = new ArrayList<>();
 
 @Override
 public Collection<? extends GrantedAuthority> getAuthorities(){
+    return Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
+}
 
-    @Override String getPassword() { return this.senhaHash;}
+    @Override 
+    public String getPassword() { return this.senhaHash;}
 
     @Override
     public String getUsername() { return this.email; }
@@ -79,7 +84,7 @@ public Collection<? extends GrantedAuthority> getAuthorities(){
 
     @Override
     public boolean isEnabled() { return this.ativo; }
-}
+
 
 
 } 

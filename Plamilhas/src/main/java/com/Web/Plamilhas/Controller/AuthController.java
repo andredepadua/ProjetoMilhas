@@ -3,6 +3,7 @@ package com.Web.Plamilhas.Controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -17,11 +18,13 @@ public class AuthController {
 
     private final UsuarioRepository repo;
     private final JwtTokenProvider jwt;
-    private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+    private final PasswordEncoder encoder;
+    //private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    public AuthController(UsuarioRepository repo, JwtTokenProvider jwt) {
+    public AuthController(UsuarioRepository repo, JwtTokenProvider jwt, PasswordEncoder encoder) {
         this.repo = repo;
         this.jwt = jwt;
+        this.encoder = encoder;
     }
 
     @PostMapping("/register")

@@ -2,11 +2,12 @@ package com.Web.Plamilhas.Entity;
 
 import java.time.OffsetDateTime;
 
-import java.util.UUID;
+
 
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+
 
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -20,11 +21,9 @@ import lombok.NoArgsConstructor;
 
 
 public class UsuarioPapelEntity {
-    
-    private UUID usuarioId;
+    @EmbeddedId
+    private UsuarioPapaelId id;
 
-
-    private Integer papelId;
     private OffsetDateTime atribuidoEm;
 
 }
