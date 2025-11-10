@@ -2,9 +2,12 @@ package com.Web.Plamilhas.Entity;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,9 +24,9 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "usuario")
 @Data @Builder @NoArgsConstructor @AllArgsConstructor 
-public class UsuarioEntity {
+public class UsuarioEntity implements UserDetails{
 @Id
-@GeneratedValue(strategy = GenerationType.AUTO)
+@GeneratedValue(strategy = GenerationType.UUID)
 private UUID id;
 @Column(nullable = false, length = 200)
 private String nomeCompleto;
@@ -56,4 +59,29 @@ private List<CompraEntity> compras = new ArrayList<>();
 
 @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 private List<SaldoPontosEntity> saldos = new ArrayList<>();
+
+@Override
+public Collection<? extends GrantedAuthority> getAuthorities(){
+
+    @Override String getPassword() { return this.senhaHash;}
+
+    @Override
+    public String getUsername() { return this.email; }
+
+    @Override
+    public boolean isAccountNonExpired() { return true; }
+
+    @Override
+    public boolean isAccountNonLocked() { return true; }
+
+    @Override
+    public boolean isCredentialsNonExpired() { return true; }
+
+    @Override
+    public boolean isEnabled() { return this.ativo; }
+}
+
+
 } 
+
+

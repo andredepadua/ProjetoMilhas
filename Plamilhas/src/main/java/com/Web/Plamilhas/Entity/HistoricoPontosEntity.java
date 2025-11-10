@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 
 public class HistoricoPontosEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @ManyToOne @JoinColumn(name = "usuario_id")

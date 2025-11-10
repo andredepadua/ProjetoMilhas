@@ -2,8 +2,9 @@ package com.Web.Plamilhas.Entity;
 
 import java.time.OffsetDateTime;
 
-import org.hibernate.validator.constraints.UUID;
+import java.util.UUID;
 
+import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -15,13 +16,14 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "usuario_papel")
-@Data @Builder @NoArgsConstructor @AllArgsConstructor
+@Data @Builder @NoArgsConstructor @AllArgsConstructor @Embeddable
+
 
 public class UsuarioPapelEntity {
-    @Id
+    
     private UUID usuarioId;
 
-    @Id 
+
     private Integer papelId;
     private OffsetDateTime atribuidoEm;
 

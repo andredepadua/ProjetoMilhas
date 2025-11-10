@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
 public class CompraEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @ManyToOne @JoinColumn(name= "usuario_id")

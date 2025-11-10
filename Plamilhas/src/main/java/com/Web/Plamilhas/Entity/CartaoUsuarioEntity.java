@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Data @Builder @NoArgsConstructor @AllArgsConstructor
 public class CartaoUsuarioEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     
     @ManyToOne @JoinColumn(name =  "usuario_id")
@@ -28,7 +28,7 @@ public class CartaoUsuarioEntity {
     @ManyToOne @JoinColumn(name = "bandeira_id")
     private BandeiraEntity bandeira;
 
-    @ManyToOne @JoinColumn(name = "program_id")
+    @ManyToOne @JoinColumn(name = "programa_id")
     private ProgramaEntity programa;
 
     private String apelido;

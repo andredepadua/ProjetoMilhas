@@ -20,7 +20,7 @@ import jakarta.persistence.GenerationType;
 @Data @Builder @NoArgsConstructor @AllArgsConstructor
 public class TokenPushEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @ManyToOne @JoinColumn(name = "usuario_id")
