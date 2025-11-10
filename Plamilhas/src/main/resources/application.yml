@@ -7,15 +7,23 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update   # Pode trocar para validate se usar Flyway
+      ddl-auto: update        # use "validate" se estiver com Flyway ativo
     show-sql: true
     properties:
       hibernate:
         format_sql: true
 
   flyway:
-    enabled: false       # Desative por enquanto até garantir a conexão
+    enabled: false            # desative até validar a conexão com o banco
+    baseline-on-migrate: true
+    locations: classpath:db/migration
 
 server:
   port: 8080
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
+
 

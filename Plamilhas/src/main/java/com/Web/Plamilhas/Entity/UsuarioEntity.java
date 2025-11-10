@@ -4,6 +4,8 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -46,12 +48,12 @@ private OffsetDateTime ultimoLogin;
 private String perfil;
 
 //Relacionamentos
-/*@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-private List<CartaoUsuario> cartoes = new ArrayList<>();
+@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+private List<CartaoUsuarioEntity> cartoes = new ArrayList<>();
 
 @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-private List<Compra> compras = new ArrayList<>();
+private List<CompraEntity> compras = new ArrayList<>();
 
 @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-private List<SaldoPontos> saldos = new ArrayList<>();*/
+private List<SaldoPontosEntity> saldos = new ArrayList<>();
 } 
