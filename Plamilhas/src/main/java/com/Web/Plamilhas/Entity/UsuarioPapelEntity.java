@@ -1,14 +1,8 @@
 package com.Web.Plamilhas.Entity;
 
 import java.time.OffsetDateTime;
-
-
-
-import jakarta.persistence.Embeddable;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-
-
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,7 +11,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "usuario_papel")
-@Data @Builder @NoArgsConstructor @AllArgsConstructor @Embeddable
+@Data @Builder @NoArgsConstructor @AllArgsConstructor
 
 
 public class UsuarioPapelEntity {

@@ -1,7 +1,9 @@
 package com.Web.Plamilhas.Security;
 
 
-import org.springframework.security.core.userdetails.*;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.Web.Plamilhas.Entity.UsuarioEntity;
@@ -20,11 +22,13 @@ public class UsuarioDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         UsuarioEntity usuario = repository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado: " + email));
-        return User.builder()
+                return usuario;
+                
+                /*return User.builder()
                 .username(usuario.getEmail())
                 .password(usuario.getSenhaHash())
                 .roles("USER")
                 .disabled(!usuario.isAtivo())
-                .build();
+                .build();*/
     }
 }
