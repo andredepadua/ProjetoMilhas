@@ -10,6 +10,10 @@ import java.util.UUID;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,6 +30,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "usuario")
 @Data @Builder @NoArgsConstructor @AllArgsConstructor 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UsuarioEntity implements UserDetails{
 @Id
 @GeneratedValue(strategy = GenerationType.UUID)
@@ -49,13 +54,15 @@ private OffsetDateTime atualizadoEm;
 @Column(name = "ultimo_login")
 private OffsetDateTime ultimoLogin;
 
-@Column(columnDefinition = "jsonb")
+//@Column(columnDefinition = "jsonb")
 private String perfil;
 
 //Relacionamentos
+@JsonIgnore
 @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 private List<CartaoUsuarioEntity> cartoes = new ArrayList<>();
 
+@JsonIgnore
 @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 private List<CompraEntity> compras = new ArrayList<>();
 
