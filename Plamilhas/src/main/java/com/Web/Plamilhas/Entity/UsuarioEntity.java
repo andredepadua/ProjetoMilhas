@@ -21,6 +21,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -53,6 +54,16 @@ private OffsetDateTime atualizadoEm;
 
 @Column(name = "ultimo_login")
 private OffsetDateTime ultimoLogin;
+
+@PrePersist
+public void prePersist() {
+    if (this.criadoEm == null)
+        this.criadoEm = OffsetDateTime.now();
+    if (this.atualizadoEm == null)
+        this.atualizadoEm = OffsetDateTime.now();
+}
+
+
 
 //@Column(columnDefinition = "jsonb")
 private String perfil;
