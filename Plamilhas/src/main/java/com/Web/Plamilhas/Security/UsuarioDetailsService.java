@@ -22,7 +22,8 @@ public class UsuarioDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         UsuarioEntity usuario = repository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado: " + email));
-                return usuario;
+                return new UsuarioPrincipal(usuario);
+
                 
                 /*return User.builder()
                 .username(usuario.getEmail())
