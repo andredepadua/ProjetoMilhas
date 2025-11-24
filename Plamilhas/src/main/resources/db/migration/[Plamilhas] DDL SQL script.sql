@@ -74,6 +74,7 @@ CREATE TABLE programa (
     criado_em timestamptz NOT NULL DEFAULT now(),
     UNIQUE(nome, operadora)
 );
+
 COMMENT ON TABLE programa IS 'Programas de pontos (ex.: Smiles, Latam Pass, TudoAzul)';
 
 -- ------------------------------------------------------------

@@ -1,5 +1,45 @@
 package com.Web.Plamilhas.Entity;
 
+import java.util.UUID;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+@Entity
+@Table(name = "cartao_usuario")
+@Data @Builder @NoArgsConstructor @AllArgsConstructor
+public class CartaoUsuarioEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+
+    @Column(nullable = false)
+    private String numeroCartao;
+
+    @Column(nullable = false)
+    private String bandeira; // Visa, Mastercard…
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private UsuarioEntity usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "programa_id")
+    private ProgramaPontosEntity programa;
+
+    // ex: 1 ponto por real
+    private double pontosPorReal = 1.0;
+}
+
+
+
+
+/*package com.Web.Plamilhas.Entity;
+
 import java.time.OffsetDateTime;
 import java.util.UUID;
 import jakarta.persistence.Entity;
@@ -38,3 +78,4 @@ public class CartaoUsuarioEntity {
     private OffsetDateTime criadoEm;
 
 }
+*/
